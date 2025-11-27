@@ -36,12 +36,9 @@ Para usar a API real (já rodando em `http://localhost:3000`), siga os passos:
 
 ### 3.1. Apontar para a API real nos scripts
 
-Nos arquivos `main-generate.js` e `main-downloads.js`, troque o import:
+Nos arquivos `main-generate.js` e `main-downloads.js`, garanta que o import está usando a API real:
 
 ```js
-// de
-import * as api from "./api.js";
-// para
 import * as api from "./api.real.js";
 ```
 
