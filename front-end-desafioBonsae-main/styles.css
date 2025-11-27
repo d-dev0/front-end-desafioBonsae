@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root { --bg:#0b0b0b; --bg-soft:#111; --fg:#eaeaea; --muted:#a7a7a7; --card:#151515; --card-b:#232323; --line:#1d1d1d; --ok:#2ecc71; --ok-b:#26b864; --err:#e74c3c; --err-b:#d54333; --brand:#2f6df2; --shadow:0 12px 28px rgba(0,0,0,.35); }
+:root[data-theme="light"]{ --bg:#f6f7fb; --bg-soft:#fff; --fg:#111; --muted:#5c5c5c; --card:#ffffff; --card-b:#e6e8ef; --line:#e6e8ef; --shadow:0 12px 24px rgba(10,20,40,.08); }
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:14.5px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:20px}
+.topbar{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--bg)}
+.nav a{color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:10px;background:var(--bg-soft)}
+.logo{height:28px}
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:var(--bg-soft);cursor:pointer;user-select:none}
+.card{background:var(--card);border:1px solid var(--card-b);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+h1{margin:0 0 14px;font-size:1.35rem;letter-spacing:.2px} h2{margin:0 0 12px;font-size:1.1rem}
+.grid{display:grid;gap:20px;grid-template-columns:1fr 380px}@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px} label span{font-weight:600}
+.input,.select,.search{padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg-soft);color:var(--fg);outline:none}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg-soft);color:var(--fg);cursor:pointer;font-weight:600;box-shadow:0 2px 0 rgba(0,0,0,.15);transform:translateY(0);transition:transform .12s ease,filter .15s ease,box-shadow .12s ease}
+.btn:hover{filter:brightness(1.05)} .btn:active{transform:translateY(1px);box-shadow:0 0 0 rgba(0,0,0,0)}
+.btn.primary{background:var(--brand);color:#fff;border-color:#2a55c7}
+.btn.success{background:var(--ok);color:#0b0b0b;border-color:var(--ok-b)}
+.btn.danger{background:var(--err);color:#fff;border-color:var(--err-b)}
+.feedback{min-height:20px;color:var(--err);margin-top:6px}
+.status{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg-soft)}
+.list .row{display:flex;gap:8px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--bg-soft)}
+.small{font-size:.92rem}.muted{color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding:12px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* === v2: Dark-mode button polish & theme toggle tweaks === */
+:root {
+  --btn-bg-dark: #12151d;
+  --btn-bd-dark: #2a2f3a;
+  --btn-bg-hover: #1a1f2b;
+  --ring: 0 0 0 3px rgba(47, 109, 242, .35);
+}
+
+.btn {
+  background: var(--bg-soft);
+}
+:root:not([data-theme="light"]) .btn:not(.success):not(.danger) {
+  background: var(--btn-bg-dark);
+  border-color: var(--btn-bd-dark);
+}
+:root:not([data-theme="light"]) .btn:not(.success):not(.danger):hover {
+  background: var(--btn-bg-hover);
+}
+.btn:focus-visible { outline: none; box-shadow: var(--ring); }
+
+/* Success / Danger gradient for better depth */
+.btn.success {
+  background: linear-gradient(180deg, rgba(46,204,113,.95), rgba(38,184,100,.95));
+}
+.btn.danger {
+  background: linear-gradient(180deg, rgba(231,76,60,.95), rgba(213,67,51,.95));
+}
+
+/* Theme toggle pill with icon feel */
+.theme-toggle {
+  background: var(--bg-soft);
+  border-radius: 999px;
+  padding: 6px 12px;
+  gap: 10px;
+}
+:root:not([data-theme="light"]) .theme-toggle {
+  background: #141726;
+  border-color: #2a2f3a;
+}
+.theme-toggle:focus-visible { outline: none; box-shadow: var(--ring); }
+
+
+/* v4: ensure only neutral buttons get dark override */
+:root:not([data-theme="light"]) .btn:not(.success):not(.danger) {
+  background: var(--btn-bg-dark);
+  border-color: var(--btn-bd-dark);
+}
+:root:not([data-theme="light"]) .btn:not(.success):not(.danger):hover {
+  background: var(--btn-bg-hover);
+}
+
+/* v4: safety — hide any stray Job/Status cells if cached HTML surfaces */
+#statusLine > div { display: none !important; }

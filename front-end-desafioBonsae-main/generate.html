@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerar Relatórios · Bonsae</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script>
+    (function(){
+      document.documentElement.setAttribute('data-theme','light');
+      try{localStorage.setItem('bonsae_theme','light');}catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav"><a href="./downloads.html">Relatórios baixados</a></div>
+    <div class="theme-toggle" id="themeToggle" style="display:none" aria-hidden="true"><span id="themeLabel">Tema</span></div>
+    <img src="./assets/bonsae-logo.png" class="logo" alt="Bonsae" />
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <img id="main-logo" src="./assets/logo_reporting_branco.jpeg" alt="Logo" style="max-width: 200px; height: auto;" />
+      </div>
+      <h1>Gerar relatório da turma</h1>
+
+      <label class="field"><span>Turma</span><select id="turmaSelect" class="select"></select></label>
+      <label class="field"><span>Professor</span><select id="profSelect" class="select"></select></label>
+      <label class="field"><span>Tipo de relatório</span>
+        <select id="tipoSelect" class="select">
+          <option value="detalhado">Horas</option>
+          <option value="estatisticas">Notas</option>
+        </select>
+      </label>
+
+      <div class="actions">
+        <button id="btn-excel" class="btn success">Gerar Relatório Excel</button>
+        <button id="btn-pdf" class="btn danger">Gerar Relatório PDF</button>
+      </div>
+
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+
+  <script type="module" src="./theme.js"></script>
+  <script type="module" src="./main-generate.js"></script>
+</body>
+</html>
